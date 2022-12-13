@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,6 +31,20 @@ public class DummyTestController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	//Delete문 만들기
+	@DeleteMapping("/http/dummy/{id}")
+	public String deleteUser(@PathVariable int id) {
+		
+		try {
+			userRepository.deleteById(id);			
+		} catch (Exception e) {
+			return "해당 id의 user를 삭제할 수 없습니다";
+		}
+		
+		return "해당 id의 user를 삭제 하였습니다.";
+		
+	}
 	
 	@Transactional
 	@PutMapping("/http/dummy/{id}")
