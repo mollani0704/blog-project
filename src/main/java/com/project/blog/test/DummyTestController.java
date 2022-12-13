@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +14,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.blog.Repository.UserRepository;
@@ -26,6 +30,22 @@ public class DummyTestController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Transactional
+	@PutMapping("/http/dummy/{id}")
+	public String updateUser(@PathVariable int id, @RequestBody User requestUser) {
+		
+		User user = userRepository.findById(id).orElseThrow(() -> {
+			return new IllegalArgumentException("해당 id의 user 정보를 업데이트 할 수 없습니다");
+		});
+		
+		user.setPassword(requestUser.getPassword());
+		user.setEmail(requestUser.getEmail());
+		
+//		userRepository.save(user);
+		
+		return null;
+	}
 	
 	@GetMapping("/http/dummy/users")
 	public List<User> getUsers() {
@@ -70,7 +90,6 @@ public class DummyTestController {
 		userRepository.save(user);
 		
 		return "회원가입이 완료되었습니다";
-		
 	}
 	
 }
