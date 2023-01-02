@@ -18,12 +18,10 @@ writeBtn.addEventListener('click', () => {
 		dataType: "json"
 	})
 	.done((response) => {
-		alert("회원가입이 완료 되었습니다.")
+		alert("글쓰기가 완료 되었습니다.")
 		location.href = "/"
 	})
 	.fail((error) => {
 		console.log(error);
 	})
-	
-	console.log(data);
 });

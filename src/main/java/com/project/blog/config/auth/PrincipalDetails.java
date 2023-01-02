@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.project.blog.model.User;
 
+import lombok.Getter;
+
+@Getter
 public class PrincipalDetails implements UserDetails{
 
 	private User user;

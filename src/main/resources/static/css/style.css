@@ -130,3 +130,9 @@ body {
 	
 	padding: 30px;
 }
+
+.page__button {
+	text-align: center;
+	
+	padding: 15px;
+}
