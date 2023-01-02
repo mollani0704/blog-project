@@ -121,3 +121,12 @@ body {
 	
 	padding: 20px;
 }
+
+.board__form {
+	width: 500px;
+	height: 300px;
+	
+	margin: auto;
+	
+	padding: 30px;
+}

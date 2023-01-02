@@ -1,7 +1,6 @@
 'use strict'
  
  const joinBtn = document.querySelector('.join__btn');
- const loginBtn = document.querySelector('.login__btn')
  
  const username = document.querySelector("#username");
  const email = document.querySelector("#email");
@@ -22,13 +21,13 @@
 	
 	$.ajax({
 		type: "POST",
-		url : "auth/joinProc",
+		url : "/auth/join",
 		data : JSON.stringify(data),
 		contentType : "application/json; charset=utf-8",
 		dataType : "json"
 	})
 	.done(function(response) {
-		console.log(response);
+		alert("회원가입이 완료 되었습니다.")
 		location.href = "/"
 	})
 	.fail(function(error) {

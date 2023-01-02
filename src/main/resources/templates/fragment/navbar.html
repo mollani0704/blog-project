@@ -10,14 +10,14 @@
 			<h3>mollani</h3>
 		</div>
 		<ul class="nav__items">
-			<a th:if="${session.principal==null}" href="/auth/joinForm" class="nav__item">회원가입</a>
-			<a th:if="${session.principal==null}" href="/auth/loginForm" class="nav__item">로그인</a>
-			
-			
-			<a th:unless="${session.principal==null}" href="/board/writeForm" class="nav__item">글쓰기</a>
-			<a th:unless="${session.principal==null}" href="/userForm" class="nav__item">회원정보</a>
-			<a th:unless="${session.principal==null}" href="/logout" class="nav__item">로그아웃</a>
-			
+			<a sec:authorize="isAnonymous()" href="/auth/joinForm" class="nav__item">회원가입</a>
+			<a sec:authorize="isAnonymous()" href="/auth/loginForm" class="nav__item">로그인</a>
+
+			<a sec:authorize="isAuthenticated()" href="/board/writeForm" class="nav__item">글쓰기</a>
+			<a sec:authorize="isAuthenticated()" href="/user/updateForm" class="nav__item">회원정보</a>
+			<a sec:authorize="isAuthenticated()" href="/logout" class="nav__item">로그아웃</a>
+
+
 		</ul>
 	</nav>
 </body>

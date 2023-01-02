@@ -4,9 +4,6 @@
     <body>
         <th:block th:replace="/fragment/navbar.html"></th:block>
         <section class="main">
-        <div sec:authorize="isAuthenticated()" sec:authentication="principal">
-       		
-        </div>
             <div class="blog__item">
                 <h2 class="blog__title">블로그 타이틀</h2>
                 <h3 class="blog__user--name">문종성</h3>
