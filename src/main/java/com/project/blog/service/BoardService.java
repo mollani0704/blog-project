@@ -28,9 +28,28 @@ public class BoardService {
 		
 		return 1;
 	};
+	
+	@Transactional
+	public int delete(String id) {
+		
+		boardRepository.deleteById(Integer.parseInt(id));
+		
+		System.out.println();
+		
+		return 1;
+		
+	}
 	 
+	@Transactional(readOnly = true)
 	public Page<Board> boardList(Pageable pageable) {
 		return boardRepository.findAll(pageable);
+	}
+	
+	@Transactional(readOnly = true)
+	public Board boardDetail(int id) {
+		return boardRepository.findById(id).orElseThrow(() -> {
+			return new IllegalArgumentException("해당 글을 찾을 수가 없습니다.");
+		});
 	}
 	
 }

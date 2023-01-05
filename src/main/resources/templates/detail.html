@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/static/css/style.css" />
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	<script src="https://kit.fontawesome.com/0f941af2a1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<th:block th:replace="/fragment/navbar.html"></th:block>
+	
+	<div th:with="detail = ${details}">
+		<button class="back__btn" onclick="history.back()">돌아가기</button>
+		
+		<span th:if="${#authentication.principal.user.id} == ${detail.user.id}" >
+			<button class="delete__btn">삭제</button>
+			<button class="update__btn">수정</button>
+		</span>
+	</div>
+	<div th:with="detail = ${details}">
+		<span>글번호 : </span><span class="writer__id" th:data-id="${detail.id}" th:text="${detail.id}"></span><br>
+		<span>작성자</span><span  th:text="${detail.user.username}"></span>
+	</div>
+	
+	<div class="board__form">
+		<form method="post">
+			<div th:with="detail = ${details}">
+				<label for="title">title</label>
+				<div th:text="${detail.title}"></div>
+				<label for="content">content</label>
+				<div th:utext="${detail.content}"></div>
+			</div>
+		</form>
+	</div>
+	<th:block th:replace="/fragment/footer.html"></th:block>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" th:src="@{/static/js/detail.js}"></script>
+</body>
+</html>

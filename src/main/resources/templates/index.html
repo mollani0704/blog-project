@@ -7,12 +7,12 @@
             <div th:each="board : ${boardList}" class="blog__item">
                 <h2 th:text="${board.title}" class="blog__title"></h2>
                 <h3 class="blog__user--name">문종성</h3>
-                <button class="blog__description--button">상세보기</button>
+                <a th:href="@{/board/{id}(id = ${board.id})}" class="blog__description--button">상세보기</a>
             </div>
         </section>
-        <div class="page__button">
-        	<button><a href="?page=${board.number - 1}" class="previous">previous</a></button>
-        	<button><a href="?page=${board.number + 1}" class="next">next</a></button>
+        <div th:with="pages = ${boardList.number}, start = ${boardList.first}, end = ${boardList.last} " class="page__button">
+        	<button><a th:href="${start} ? '#' : @{?(page=${pages - 1})}" class="previous">previous</a></button>
+        	<button><a th:href="${end} ? '#' : @{?(page=${pages + 1})}" class="next">next</a></button>
         </div>
 		<th:block th:replace="/fragment/footer.html"></th:block>
 		<script src='/static/js/page.js'></script>
