@@ -19,7 +19,7 @@
 		
 		<span th:if="${#authentication.principal.user.id} == ${detail.user.id}" >
 			<button class="delete__btn">삭제</button>
-			<button class="update__btn">수정</button>
+			<a th:href="@{/board/updateForm/{id}(id=${detail.id})}" class="update__btn">수정</a>
 		</span>
 	</div>
 	<div th:with="detail = ${details}">
@@ -31,7 +31,7 @@
 		<form method="post">
 			<div th:with="detail = ${details}">
 				<label for="title">title</label>
-				<div th:text="${detail.title}"></div>
+				<div th:utext="${detail.title}"></div>
 				<label for="content">content</label>
 				<div th:utext="${detail.content}"></div>
 			</div>

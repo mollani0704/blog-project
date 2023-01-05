@@ -36,4 +36,10 @@ public class BlogController {
 	public String board() {
 		return "board.html";
 	}
+	
+	@GetMapping("/board/updateForm/{id}")
+	public String updateForm(@PathVariable int id, Model model) {
+		model.addAttribute("details", boardService.boardDetail(id));
+		return "updateForm.html";
+	}
 }

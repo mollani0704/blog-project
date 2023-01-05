@@ -37,7 +37,18 @@ public class BoardService {
 		System.out.println();
 		
 		return 1;
+	}
+	
+	@Transactional
+	public int updateBoard(int id, Board board) {
+		Board data = boardRepository.findById(id).orElseThrow(() -> {
+			return new IllegalArgumentException("해당 글을 찾을 수가 없습니다.");
+		});
 		
+		data.setTitle(board.getTitle());
+		data.setContent(board.getContent());
+		
+		return 1;
 	}
 	 
 	@Transactional(readOnly = true)
