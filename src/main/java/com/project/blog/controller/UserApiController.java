@@ -4,7 +4,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +30,16 @@ public class UserApiController {
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
 	};
+	
+	@PutMapping("/user/{id}")
+	public ResponseDto<Integer> update(@PathVariable int id, @RequestBody User user) {
+		
+		int result = userService.update(user, id);
+		
+		System.out.println("회원 수정이 완료 되었습니다.");
+		
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
+	}
 	
 	/*
 	@PostMapping("auth/api/user/login")
