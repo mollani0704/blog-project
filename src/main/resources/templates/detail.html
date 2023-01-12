@@ -37,6 +37,23 @@
 			</div>
 		</form>
 	</div>
+	
+	<div class="comment__input--box">
+		<textarea rows=1></textarea>
+		<button>등록</button>
+	</div>
+	<div class="comment__box">
+		<ul >
+			<li th:each="data:${details.reply}">
+				<div th:text="${data.content}"></div>
+				<div>
+					<div>작성자 : [[${data.user.username}]]</div>
+					<button>삭제</button>
+				</div>
+			</li>		
+		</ul>
+	
+	</div>
 	<th:block th:replace="/fragment/footer.html"></th:block>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" th:src="@{/static/js/detail.js}"></script>
