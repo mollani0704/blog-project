@@ -12,10 +12,11 @@
 			</div>
 
 			<div>
-				<label for="email">Email</label> <input th:value=${principal.user.email} type="email" name="email" class="input__form" placeholder="Enter email" id="email">
+				<label for="email">Email</label> <input th:value=${principal.user.email} type="email" name="email" class="input__form" placeholder="Enter email" id="email" readonly>
 			</div>
-
-			<div>
+			
+			
+			<div sec:authorize="principal.user.oauth==null">
 				<label for="password">Password</label> <input type="password" name="password" class="input__form" placeholder="Enter password" id="password">
 			</div>
 			<div>

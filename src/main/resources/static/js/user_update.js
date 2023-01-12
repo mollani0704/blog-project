@@ -2,6 +2,7 @@
  
  const updateBtn = document.querySelector('.user__update--btn');
  
+ const username = document.querySelector("#username");
  const email = document.querySelector("#email");
  const password = document.querySelector("#password");
  
@@ -10,6 +11,8 @@
  
  updateBtn.addEventListener('click', () => {
 	let data = {
+		
+		username : username.value,
 		email : email.value,
 		password: password.value
 	};

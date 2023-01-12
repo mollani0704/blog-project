@@ -12,6 +12,8 @@ import com.project.blog.model.User;
 @Service
 public class UserService {
 	
+	
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -40,14 +42,26 @@ public class UserService {
 		return -1;
 	}
 	
+	@Transactional(readOnly = true)
+	public User findUser(String username) {
+		
+		User user = userRepository.findByUsername(username).orElseGet(() -> {
+			return new User();
+		});
+		
+		return user;
+	}
+	
 	@Transactional
 	public int update(User user, int id) {
 		User rawUserData = userRepository.findById(id).orElseThrow(() -> {
 			return new IllegalArgumentException("해당 id의 회원정보를 찾을 수 없습니다.");
 		});
 		
-		rawUserData.setEmail(user.getEmail());
-		rawUserData.setPassword(encoder.encode(user.getPassword()));
+		if(rawUserData.getOauth() == null || rawUserData.getOauth().equals("")) {			
+			rawUserData.setEmail(user.getEmail());
+			rawUserData.setPassword(encoder.encode(user.getPassword()));
+		}
 		
 		return 1;
 	}

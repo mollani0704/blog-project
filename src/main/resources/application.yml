@@ -35,3 +35,6 @@ spring:
       
   mvc:
     static-path-pattern: /static/**
+    
+oauth:
+  key: oauth2486

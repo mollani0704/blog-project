@@ -45,7 +45,7 @@ public class SecurityConfig {
 		http
 		.csrf().disable()
 		.authorizeRequests()
-		  .antMatchers("/auth/**", "/")
+		  .antMatchers("/auth/**", "/", "/kakao/**")
 		  .permitAll()
 		  .anyRequest()
 		  .authenticated()
