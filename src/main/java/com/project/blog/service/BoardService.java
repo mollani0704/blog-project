@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.project.blog.Repository.BoardRepository;
+import com.project.blog.Repository.ReplyRepository;
+import com.project.blog.config.auth.PrincipalDetails;
 import com.project.blog.model.Board;
+import com.project.blog.model.Reply;
 import com.project.blog.model.User;
 
 @Service
@@ -17,6 +20,9 @@ public class BoardService {
 	
 	@Autowired
 	private BoardRepository boardRepository;
+	
+	@Autowired
+	private ReplyRepository replyRepository;
 	
 	@Transactional
 	public int save(Board board, User user) {
@@ -61,6 +67,22 @@ public class BoardService {
 		return boardRepository.findById(id).orElseThrow(() -> {
 			return new IllegalArgumentException("해당 글을 찾을 수가 없습니다.");
 		});
+	}
+	
+	@Transactional
+	public int writeReply(int boardId, Reply reply, User user) {
+		
+		Board board = boardRepository.findById(boardId).orElseThrow(() -> {
+			return new IllegalArgumentException("해당 글에 댓글을 작성할 수 없습니다..");
+		});
+		
+		reply.setUser(user);
+		reply.setBoard(board);
+		
+		replyRepository.save(reply);
+		
+		return 1;
+		
 	}
 	
 }
