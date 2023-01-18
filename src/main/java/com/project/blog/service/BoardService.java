@@ -1,7 +1,5 @@
 package com.project.blog.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.blog.Repository.BoardRepository;
 import com.project.blog.Repository.ReplyRepository;
-import com.project.blog.config.auth.PrincipalDetails;
 import com.project.blog.model.Board;
 import com.project.blog.model.Reply;
 import com.project.blog.model.User;
@@ -83,6 +80,14 @@ public class BoardService {
 		
 		return 1;
 		
+	}
+	
+	@Transactional
+	public int deleteReply(int replyId) {
+		
+		replyRepository.deleteById(replyId);
+		
+		return 1;	
 	}
 	
 }

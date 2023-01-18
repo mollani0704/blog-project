@@ -3,6 +3,9 @@
 const deleteBtn = document.querySelector('.delete__btn');
 const replySaveBtn = document.querySelector('.reply__save--button')
 const replyContent = document.querySelector('.reply__content')
+
+const replyList = document.querySelector('.reply__list');
+
 let id = document.querySelector('.writer__id').getAttribute("data-id");
 
 
@@ -44,3 +47,19 @@ deleteBtn.addEventListener('click', () => {
 		console.log(error);
 	})
 });
+
+function deleteReply(replyId) {
+	
+	$.ajax({
+		type: "DELETE",
+		url: `/api/board/${id}/reply/${replyId}`,
+		dataType: "json"
+	})
+	.done((response) => {
+		alert("댓글 삭제가 완료 되었습니다.")
+		location.href = `/board/${id}`
+	})
+	.fail((error) => {
+		console.log(error);
+	})
+}

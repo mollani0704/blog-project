@@ -43,12 +43,12 @@
 		<button class="reply__save--button">등록</button>
 	</div>
 	<div class="comment__box">
-		<ul >
-			<li th:each="data:${details.reply}">
-				<div th:text="${data.content}"></div>
+		<ul class="reply__list">
+			<li  th:each="data:${details.reply}">
+				<div class="reply" th:text="${data.content}" ></div>
 				<div>
 					<div>작성자 : [[${data.user.username}]]</div>
-					<button>삭제</button>
+					<button th:id="${data.id}" th:onclick="deleteReply(this.getAttribute('id'))" class=reply__delete--button>삭제</button>
 				</div>
 			</li>		
 		</ul>

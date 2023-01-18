@@ -60,4 +60,12 @@ public class BlogApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
 	}
 	
+	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
+	public ResponseDto<Integer> deleteReply(@PathVariable int replyId) {
+		
+		int result = boardService.deleteReply(replyId);
+		
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
+	}
+	
 }
