@@ -2,7 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
    	<th:block th:replace="/fragment/head.html"></th:block>
     <body>
-        <th:block th:replace="/fragment/navbar.html"></th:block>
+        <!-- <th:block th:replace="/fragment/navbar.html"></th:block>-->
+        <img src="/static/img/blogMain.jpg" class=main__img>
+        <div class="main__img--cover">
+        </div>
+        <div class="main__title">
+        	<h1>"IT'S BLOG"</h1>
+        	<h2>Welcome to "IT'S BLOG"</h2>
+        </div>
+        
         <section class="main">
             <div th:each="board : ${boardList}" class="blog__item">
                 <h2 th:utext="${board.title}" class="blog__title"></h2>
