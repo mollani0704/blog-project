@@ -10,26 +10,56 @@ body {
 
 /* navbar */
 .navbar {
-    background-color: #06283d;
+	
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	
+	width: 98%;
+	
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
 
     padding: 20px;
+    
+    z-index: 1;
 }
 
-.logo h3 {
-    margin: 18px 0px;
-    color: white;
+.navbar__white {
+	background-color: white;
+	opacity: 0.8
 }
+
+.logo a{
+	
+	margin-top: 20px;
+	
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    
+    text-decoration: none;
+};
 
 .nav__items {
-    margin: 18px 0px;
+	margin: 0px;
 }
 
 .nav__item {
     margin-right: 10px;
     text-decoration: none;
     color: white;
+    font-weight: 700;
+}
+
+.h3__black {
+	color: black;
+}
+
+.nav__item--black {
+	color: black;
+	
 }
 
 .main__img {
@@ -79,52 +109,54 @@ body {
 }
 
 
-
-
 /* main section */
 
-.main {
+.lists {
     padding: 30px;
 
     display: flex;
+    flex-direction: column;
+    
     justify-content: center;
     align-items: center;
 
-    flex-wrap: wrap;
 }
 
 .blog__item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin: 2px;
-
-    width: 250px;
-    height: 250px;
-
-    border-radius: 5px;
-
-    background-color: #256d85;
+	width: 600px;
+	height: 100px;
 }
 
-.blog__description--button {
-    width: 100px;
-    height: 50px;
-
-    background-color: #47b5ff;
-
-    border: 1px solid white;
-    border-radius: 5px;
-
-    color: white;
+.blog__title {
+	text-decoration: none;
+	color: black;
+	
+	font-weight: 700;
+	font-size: 40px;
 }
 
-.blog__title,
 .blog__user--name {
-    color: white;
+    color: black
 }
+
+.underScore {
+	width: 100%;
+	height: 2px;
+	background-color: #e0e0e0;
+	
+	margin-top: 20px;
+}
+
+/* next, previous button */
+
+.previous {
+	margin-right: 10px;
+}
+
+.next {
+	margin-left : 10px;
+}
+
 
 /* footer */
 .footer {
@@ -132,18 +164,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background-color: #dff6ff;
-}
-
-.footer h3 {
-    margin: 0px;
-    margin-top: 15px;
+    
+    border-top : 1px solid #e0e0e0;
+    
+    padding: 20px;
 }
 
 .footer button {
-    margin: 15px 0px;
-
+	
     width: 50px;
     height: 50px;
 
@@ -151,6 +179,11 @@ body {
     background-color: transparent;
 
     border: none;
+}
+
+.footer span {
+	font-size: 20px;
+	font-weight: 700;
 }
 
 .join__form {
@@ -169,6 +202,8 @@ body {
 	align-items: center;
 	
 	padding: 20px;
+	
+	margin-top: 200px;
 }
 
 .board__form {
