@@ -1,0 +1,167 @@
+body {
+    margin: 0px;
+    padding: 0px;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+}
+
+.login__container {
+	margin-top: 0px;
+	
+	padding: 100px;
+}
+
+.login__form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.join__container {
+	
+	display: flex;
+	flex-direction: column;
+	
+	justify-content: center;
+	align-items: center;
+	
+	margin-top: 0px;
+	
+	padding: 40px;
+}
+
+.join__form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center
+}
+
+/*login, join Page */
+#username {
+	width: 400px;
+	height: 50px;
+	
+	border: 1px solid #eeeeee;
+	
+	margin-bottom : 5px;
+}
+
+#email {
+	width: 400px;
+	height: 50px;
+	
+	border: 1px solid #eeeeee;
+	
+	margin-bottom : 5px;
+}
+
+#password {
+	width: 400px;
+	height: 50px;
+	
+	border: 1px solid #eeeeee;
+}
+
+
+
+.login__buttons {
+	display: flex;
+	flex-direction: column;
+	
+	margin-top: 10px;
+}
+
+.login__btn {
+	height: 45px;
+	background-color: transparent;
+	
+	color: #7986cb;
+	
+	border: 1px solid #7986cb;
+	
+	margin-bottom : 5px;
+}
+
+.join__btn--container {
+	margin: auto;
+}
+
+.join__btn {
+	
+	text-align: center;
+	
+	height: 45px;
+	width: 200px;
+	
+	background-color: transparent;
+	
+	color: #7986cb;
+	
+	border: 1px solid #7986cb;
+	
+}
+
+/* footer */
+.footer {
+	
+	position: absolute;
+	bottom: 0px;
+	
+	width: 98%;
+	
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-top : 1px solid #e0e0e0;
+    
+    padding: 20px;
+}
+
+.footer button {
+	
+    width: 50px;
+    height: 50px;
+
+    font-size: 35px;
+    background-color: transparent;
+
+    border: none;
+}
+
+.footer span {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.join__form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	flex-direction: column;
+	
+	padding: 20px;
+}
+
+.board__form {
+	width: 500px;
+	height: 300px;
+	
+	margin: auto;
+	
+	padding: 30px;
+}
+
+.page__button {
+	text-align: center;
+	
+	padding: 15px;
+}

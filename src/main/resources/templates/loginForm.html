@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<th:block th:replace="/fragment/head.html"></th:block>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://kit.fontawesome.com/0f941af2a1.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<link rel="stylesheet" href="/static/css/navbar.css" />
+	<link rel="stylesheet" href="/static/css/signin_up.css" />
+	<title>Document</title>
+</head>
 <body>
-	<th:block th:replace="/fragment/navbar.html"></th:block>
+	<th:block th:replace="/fragment/other_navbar.html"></th:block>
 
-	<div class="login__form">
-		<form action="/auth/loginProc" method="post">
+	<div class="login__container">
+		<form class="login__form" action="/auth/loginProc" method="post">
+			<h1>로그인</h1>
 			<div>
-				<label for="username">Username</label> <input type="text" name="username" class="input__form" placeholder="Enter username" id="username">
+				<input type="text" name="username" class="input__form" placeholder="아아디를 입력해주세요" id="username">
 			</div>
 
 			<div>
-				<label for="password">Password</label> <input type="password" name="password" class="input__form" placeholder="Enter password" id="password">
-			</div>
-			<div>
-				<input type="checkbox" name="remember" id=remember> <label for="remember">remember me</label>
+				<input type="password" name="password" class="input__form" placeholder="비밀번호를 입력해주세요" id="password">
 			</div>
 
-			<div>
-				<a href="https://kauth.kakao.com/oauth/authorize?client_id=0d152628d273dc617740a77b9c9dd5af&redirect_uri=http://localhost:8000/kakao/auth/callback&response_type=code">
-				<img src="/static/img/kakao_login_medium_narrow.png"></a>
+			<div class=login__buttons>
 				<button class='login__btn'>로그인</button>
+				<a class="kakao__login--btn" href="https://kauth.kakao.com/oauth/authorize?client_id=0d152628d273dc617740a77b9c9dd5af&redirect_uri=http://localhost:8000/kakao/auth/callback&response_type=code">
+				<img src="/static/img/kakao_login_medium_narrow.png"></a>
 			</div>
 		</form>
 	</div>
