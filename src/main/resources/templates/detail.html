@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Document</title>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="/static/css/navbar.css" />
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-	<script src="https://kit.fontawesome.com/0f941af2a1.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://kit.fontawesome.com/0f941af2a1.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/static/css/navbar.css" />
+<link rel="stylesheet" href="/static/css/detail.css" />
 </head>
 <body>
 	<th:block th:replace="/fragment/other_navbar.html"></th:block>
-	<div th:with="detail = ${details}">
-		<button class="back__btn" onclick="history.back()">돌아가기</button>
-		
-		<span th:if="${#authentication.principal.user.id} == ${detail.user.id}" >
-			<button class="delete__btn">삭제</button>
-			<a th:href="@{/board/updateForm/{id}(id=${detail.id})}" class="update__btn">수정</a>
-		</span>
-	</div>
-	<div th:with="detail = ${details}">
-		<span>글번호 : </span><span class="writer__id" th:data-id="${detail.id}" th:text="${detail.id}"></span><br>
-		<span>작성자</span><span  th:text="${detail.user.username}"></span>
-	</div>
-	
-	<div class="board__form">
-		<form method="post">
-			<div th:with="detail = ${details}">
-				<label for="title">title</label>
-				<div th:utext="${detail.title}"></div>
-				<label for="content">content</label>
-				<div th:utext="${detail.content}"></div>
+	<div class="buttons" th:with="detail = ${details}">
+			<span>글번호 : </span><span class="writer__id" th:data-id="${detail.id}" th:text="${detail.id}"></span><br> <span>작성자</span>
+			<span th:text="${detail.user.username}"></span>
+			<button class="back__btn" onclick="history.back()">돌아가기</button>
+			<div th:if="${#authentication.principal.user.id} == ${detail.user.id}">
+				<a class="update__btn" th:href="@{/board/updateForm/{id}(id=${detail.id})}">수정</a>
+				<button class="delete__btn">삭제</button> 
 			</div>
-		</form>
-	</div>
-	
-	<div class="comment__input--box">
-		<textarea class="reply__content" rows=1></textarea>
-		<button class="reply__save--button">등록</button>
-	</div>
-	<div class="comment__box">
-		<ul class="reply__list">
-			<li  th:each="data:${details.reply}">
-				<div class="reply" th:text="${data.content}" ></div>
-				<div>
-					<div>작성자 : [[${data.user.username}]]</div>
-					<button th:id="${data.id}" th:onclick="deleteReply(this.getAttribute('id'))" class=reply__delete--button>삭제</button>
-				</div>
-			</li>		
-		</ul>
-	
+		</div>
+	<div class="detail__container">
+		
+		<div th:with="detail = ${details}">
+			
+		</div>
+
+		<div class="board__form" th:with="detail = ${details}">
+			<div class="title" th:utext="${detail.title}"></div>
+			<div class="content" th:utext="${detail.content}"></div>
+		</div>
+
+		<div class="comment__input--box">
+			<textarea class="reply__content" rows=1></textarea>
+			<button class="reply__save--button">등록</button>
+		</div>
+		<div class="comment__box">
+			<ul class="reply__list">
+				<li th:each="data:${details.reply}">
+					<div class="reply" th:text="${data.content}"></div>
+					<div>
+						<div>작성자 : [[${data.user.username}]]</div>
+						<button th:id="${data.id}" th:onclick="deleteReply(this.getAttribute('id'))" class=reply__delete--button>삭제</button>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 	<th:block th:replace="/fragment/footer.html"></th:block>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
