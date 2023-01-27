@@ -10,23 +10,22 @@ body {
 
 /* detail */
 
-.detail__container {
+.detail__nav {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	justify-content: space-between;
 	
-	padding: 30px;
+	padding : 10px;
+}
+
+.detail__info {
+	display: flex;
+	font-size: 13px;
+	color: #424242;
+	font-weight: 700;
 }
 
 .buttons {
-	
-	position: absolute;	
-	right: 5px;
-	
-	display: flex;
-	
-	padding: 10px;
+	display: flex;	
 }
 
 .back__btn {
@@ -59,16 +58,109 @@ body {
 	border: 1px solid #7986cb;
 }
 
+.detail__container {
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
+	padding: 30px;
+}
+
 .board__form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	
+	width: 65%;
 }
 
 .title {
-	font-size: 40px;
+	font-size: 50px;
 }
+
+.content {
+	font-size: 16px;
+}
+
+/* 댓글 리스트 */
+
+.comment__box {
+	width: 65%;
+}
+
+.vertical__line {
+	width: 100%;
+	height: 2px;
+	background-color: #e0e0e0;
+	
+	margin-top: 20px;
+}
+
+.reply__lists {
+	list-style: none;
+	padding: 0px;
+}
+
+.reply__writer {
+	font-size: 15px;
+	font-weight: 700;
+	color: #424242;
+}
+
+.reply {
+	display: flex;
+	justify-content: space-around;
+	
+	padding: 15px;
+}
+
+.reply__delete--button {
+	background-color: transparent;
+	border: none;
+	color: red;
+	
+	cursor: pointer;
+}
+
+/* 댓글 등록 창 */
+
+.comment__input--box {
+	width: 65%;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.reply__content--box {
+	width: 100%;
+	height: 70px;
+	
+	border: 1px solid #7986cb;
+}
+
+.reply__save--button {
+	align-self: flex-end;
+	
+	background-color: transparent;
+	color: #f48fb1;
+	border: 1px solid #f48fb1;
+	
+	width: 80px;
+	height: 35px;
+	
+	padding: 0px;
+	
+	margin-top: 5px;
+	
+}
+
+
 
 /* footer */
 .footer {

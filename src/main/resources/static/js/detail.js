@@ -2,9 +2,7 @@
  
 const deleteBtn = document.querySelector('.delete__btn');
 const replySaveBtn = document.querySelector('.reply__save--button')
-const replyContent = document.querySelector('.reply__content')
-
-const replyList = document.querySelector('.reply__list');
+const replyContent = document.querySelector('.reply__content--box')
 
 let id = document.querySelector('.writer__id').getAttribute("data-id");
 

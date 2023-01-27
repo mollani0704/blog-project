@@ -14,40 +14,42 @@
 </head>
 <body>
 	<th:block th:replace="/fragment/other_navbar.html"></th:block>
-	<div class="buttons" th:with="detail = ${details}">
-			<span>글번호 : </span><span class="writer__id" th:data-id="${detail.id}" th:text="${detail.id}"></span><br> <span>작성자</span>
-			<span th:text="${detail.user.username}"></span>
+	<div class=detail__nav th:with="detail = ${details}">
+		<div class="detail__info">
+			<span>글번호: </span>&nbsp<span class="writer__id" th:data-id="${detail.id}" th:text="${detail.id}"></span>&nbsp
+			<span>작성자: </span>&nbsp<span th:text="${detail.user.username}"></span>
+		</div>
+		<div class="buttons">	
 			<button class="back__btn" onclick="history.back()">돌아가기</button>
 			<div th:if="${#authentication.principal.user.id} == ${detail.user.id}">
 				<a class="update__btn" th:href="@{/board/updateForm/{id}(id=${detail.id})}">수정</a>
 				<button class="delete__btn">삭제</button> 
 			</div>
 		</div>
+	</div>
+	
 	<div class="detail__container">
-		
-		<div th:with="detail = ${details}">
-			
-		</div>
-
 		<div class="board__form" th:with="detail = ${details}">
 			<div class="title" th:utext="${detail.title}"></div>
 			<div class="content" th:utext="${detail.content}"></div>
 		</div>
 
-		<div class="comment__input--box">
-			<textarea class="reply__content" rows=1></textarea>
-			<button class="reply__save--button">등록</button>
-		</div>
 		<div class="comment__box">
-			<ul class="reply__list">
-				<li th:each="data:${details.reply}">
-					<div class="reply" th:text="${data.content}"></div>
-					<div>
-						<div>작성자 : [[${data.user.username}]]</div>
-						<button th:id="${data.id}" th:onclick="deleteReply(this.getAttribute('id'))" class=reply__delete--button>삭제</button>
+			<div class="vertical__line"></div>
+			<ul class="reply__lists">
+				<li class="reply__list" th:each="data:${details.reply}">
+					<div class="reply__writer">작성자 : [[${data.user.username}]]</div>
+					<div class="reply">
+						<div class="reply__content" th:text="${data.content}"></div>
+						<button class=reply__delete--button th:id="${data.id}" th:onclick="deleteReply(this.getAttribute('id'))"><i class="fa-solid fa-xmark"></i></button>
 					</div>
 				</li>
 			</ul>
+		</div>
+		
+		<div class="comment__input--box">
+			<textarea class="reply__content--box" rows=1></textarea>
+			<button class="reply__save--button">댓글 남기기</button>
 		</div>
 	</div>
 	<th:block th:replace="/fragment/footer.html"></th:block>
