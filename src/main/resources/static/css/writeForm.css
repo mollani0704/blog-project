@@ -8,24 +8,31 @@ body {
     box-sizing: border-box;
 }
 
-.update__form {
-	
-	position: relative;
+.board__container {
 	
 	width: 60%;
 	
 	margin: auto;
-	padding: 50px;
 }
 
-.title__update {
+.board__form {
+	
+	position: relative;
+	
+	width: 100%;
+	
+	margin: auto;
+	padding: 50px ;
+}
+
+.title__board {
 	display: flex;
 	flex-direction: column;
 	
 	margin-bottom: 10px;
 }
 
-.title__update label {
+.title__board label {
 	margin-bottom: 8px;
 }
 
@@ -33,7 +40,8 @@ body {
 	margin-top: 8px;
 }
 
-.update__btn {
+.write__btn {
+	
 	position: absolute;
 	right: 50px;
 	

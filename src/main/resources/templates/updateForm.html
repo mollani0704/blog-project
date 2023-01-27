@@ -15,21 +15,21 @@
 <body>
 	<th:block th:replace="/fragment/other_navbar.html"></th:block>
 
-	<div class="board__form" th:with="detail=${details}">
+	<div class="update__form" th:with="detail=${details}">
 		<input class="user__id" type="hidden" th:value=${detail.id}>
-		<form>
-			<div>
-				<label for="title">title</label> <input th:value=${detail.title} type="text" class="input__form" placeholder="write title" id="title">
+	
+			<div class="title__update">
+				<label for="title">제목</label> 
+				<input th:value=${detail.title} type="text" class="input__form" placeholder="write title" id="title">
 			</div>
 
-			<div>
+			<div class="content__update">
 				<label for="content">content</label>
 				<textarea th:text="${detail.content}" id="content" class="content summernote"></textarea>
 			</div>
-
-		</form>
 		<button class="update__btn">글 수정</button>
 	</div>
+	
 	<script>
       $('.summernote').summernote({
         placeholder: 'write your content',

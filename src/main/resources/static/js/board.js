@@ -4,7 +4,10 @@ const writeBtn = document.querySelector('.write__btn');
 const title = document.querySelector('#title')
 const content = document.querySelector('.summernote')
 
-writeBtn.addEventListener('click', () => {
+writeBtn.addEventListener('click', (event) => {
+	
+	event.preventDefault();
+	
 	let data = {
 		title : title.value,
 		content : content.value

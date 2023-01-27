@@ -4,31 +4,31 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/static/css/style.css" />
 	<title>Document</title>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<script src="https://kit.fontawesome.com/0f941af2a1.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/static/css/navbar.css" />
+	<link rel="stylesheet" href="/static/css/writeForm.css" />
 </head>
 <body>
-	<th:block th:replace="/fragment/navbar.html"></th:block>
+	<th:block th:replace="/fragment/other_navbar.html"></th:block>
 
-	<div class="board__form">
-		<form method="post">
-			<div>
+	<div class="board__container">
+		<form class="board__form" method="post">
+			<div class="title__board">
 				<label for="title">title</label> <input type="text" class="input__form" placeholder="write title" id="title">
 			</div>
 
-			<div>
+			<div class="content__board">
 				<label for="content">content</label>
 				<textarea id="content" class="content summernote"></textarea>
-			</div>
-
-		</form>
-
+			</div>			
 		<button class="write__btn">글쓰기</button>
+		</form>
 	</div>
+	
 	<script>
       $('.summernote').summernote({
         placeholder: 'write your content',
@@ -46,7 +46,7 @@
       });
     </script>
 	<th:block th:replace="/fragment/footer.html"></th:block>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="/static/js/board.js"></script>
 </body>
 </html>

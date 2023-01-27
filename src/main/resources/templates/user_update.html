@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<th:block th:replace="/fragment/head.html"></th:block>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://kit.fontawesome.com/0f941af2a1.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<link rel="stylesheet" href="/static/css/navbar.css" />
+	<link rel="stylesheet" href="/static/css/signin_up.css" />
+	<title>Document</title>
+</head>
 <body>
-	<th:block th:replace="/fragment/navbar.html"></th:block>
+	<th:block th:replace="/fragment/other_navbar.html"></th:block>
 
 	<div th:with="principal=${#authentication.principal}"class="join__form">
 		<form method="post">
