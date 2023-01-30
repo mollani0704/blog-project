@@ -14,21 +14,25 @@
 </head>
 <body>
 	<th:block th:replace="/fragment/other_navbar.html"></th:block>
-
-	<div class="update__form" th:with="detail=${details}">
-		<input class="user__id" type="hidden" th:value=${detail.id}>
 	
-			<div class="title__update">
-				<label for="title">제목</label> 
-				<input th:value=${detail.title} type="text" class="input__form" placeholder="write title" id="title">
-			</div>
-
-			<div class="content__update">
-				<label for="content">content</label>
-				<textarea th:text="${detail.content}" id="content" class="content summernote"></textarea>
-			</div>
-		<button class="update__btn">글 수정</button>
+	<div class="update__container">	
+		<div class="update__form" th:with="detail=${details}">
+			<input class="user__id" type="hidden" th:value=${detail.id}>
+		
+				<div class="title__update">
+					<label for="title">제목</label> 
+					<input th:value=${detail.title} type="text" class="input__form" placeholder="write title" id="title">
+				</div>
+	
+				<div class="content__update">
+					<label for="content">content</label>
+					<textarea th:text="${detail.content}" id="content" class="content summernote"></textarea>
+				</div>
+			<button class="update__btn">글 수정</button>
+		</div>
 	</div>
+	
+	<th:block th:replace="/fragment/footer.html"></th:block>
 	
 	<script>
       $('.summernote').summernote({
@@ -46,7 +50,6 @@
         ]
       });
     </script>
-	<th:block th:replace="/fragment/footer.html"></th:block>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="/static/js/board_update.js"></script>
 </body>

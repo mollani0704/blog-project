@@ -8,42 +8,41 @@ body {
     box-sizing: border-box;
 }
 
-.login__container {
-	margin-top: 0px;
-	
-	padding: 100px;
-}
-
-.login__form {
-	
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	
-}
-
-.join__container {
-	
+.user__update--container {
 	display: flex;
 	flex-direction: column;
 	
 	justify-content: center;
 	align-items: center;
-	
-	margin-top: 0px;
 	
 	padding: 40px;
 }
 
-.join__form {
+.user__update--title {
+	margin-bottom: 0px;
+}
+
+.user__update--form {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;;
 	justify-content: center;
 	align-items: center;
 	
-	padding: 20px;
+	padding: 30px;
 }
+
+.input__form {
+	display: flex;
+	flex-direction: column;
+	
+	margin-bottom: 5px;
+}
+
+.input__form label {
+	margin-bottom: 5px;
+}
+
+
 
 /*login, join Page */
 #username {
@@ -71,42 +70,15 @@ body {
 	border: 1px solid #eeeeee;
 }
 
-
-
-.login__buttons {
-	display: flex;
-	flex-direction: column;
+.user__update--btn {
 	
-	margin-top: 10px;
-}
-
-.login__btn {
-	height: 45px;
+	width: 70px;
+	height: 40px;
+	
+	margin-top: 5px;
 	background-color: transparent;
-	
 	color: #7986cb;
-	
 	border: 1px solid #7986cb;
-	
-	margin-bottom : 5px;
-}
-
-.join__btn--container {
-	margin: auto;
-}
-
-.join__btn {
-	
-	text-align: center;
-	
-	height: 45px;
-	width: 200px;
-	
-	background-color: transparent;
-	
-	color: #7986cb;
-	
-	border: 1px solid #7986cb;
-	
+	border-radius: 5px;
 }
 

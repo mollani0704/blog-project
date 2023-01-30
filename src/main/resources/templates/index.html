@@ -25,11 +25,12 @@
                 <span class="blog__user--name">Posted By [[${board.user.username}]] on [[${board.createDate}]]</span>
                 <div class="underScore"></div>
             </div>
+            <div class="page__button" th:with="pages = ${boardList.number}, start = ${boardList.first}, end = ${boardList.last} ">
+        		<a th:href="${start} ? '#' : @{?(page=${pages - 1})}" class="previous"><i class="fa-solid fa-chevron-left"></i></a>
+        		<a th:href="${end} ? '#' : @{?(page=${pages + 1})}" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+        	</div>
         </section>
-        <div th:with="pages = ${boardList.number}, start = ${boardList.first}, end = ${boardList.last} " class="page__button">
-        	<a th:href="${start} ? '#' : @{?(page=${pages - 1})}" class="previous"><i class="fa-solid fa-chevron-left"></i></a>
-        	<a th:href="${end} ? '#' : @{?(page=${pages + 1})}" class="next"><i class="fa-solid fa-chevron-right"></i></a>
-        </div>
+        
 		<th:block th:replace="/fragment/footer.html"></th:block>
 		<script src='/static/js/page.js'></script>
     </body>

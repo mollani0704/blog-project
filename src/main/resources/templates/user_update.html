@@ -7,37 +7,30 @@
 	<script src="https://kit.fontawesome.com/0f941af2a1.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<link rel="stylesheet" href="/static/css/navbar.css" />
-	<link rel="stylesheet" href="/static/css/signin_up.css" />
+	<link rel="stylesheet" href="/static/css/user_update.css" />
 	<title>Document</title>
 </head>
 <body>
 	<th:block th:replace="/fragment/other_navbar.html"></th:block>
 
-	<div th:with="principal=${#authentication.principal}"class="join__form">
-		<form method="post">
+	<div class="user__update--container" th:with="principal=${#authentication.principal}">
+		<h1 class=user__update--title>회원정보 수정</h1>
+		<form class="user__update--form" method="post">
 			<input class="user__id" type="hidden" th:value=${principal.user.id}>
-			<div>
+			<div class="input__form">
 				<label for="username">Username</label> <input th:value=${principal.user.username} type="text" name="username" class="input__form" placeholder="Enter username" id="username" readonly>
 			</div>
 
-			<div>
+			<div class="input__form">
 				<label for="email">Email</label> <input th:value=${principal.user.email} type="email" name="email" class="input__form" placeholder="Enter email" id="email" readonly>
 			</div>
 			
-			
-			<div sec:authorize="principal.user.oauth==null">
+			<div class="input__form" sec:authorize="principal.user.oauth==null">
 				<label for="password">Password</label> <input type="password" name="password" class="input__form" placeholder="Enter password" id="password">
 			</div>
-			<div>
-				<input type="checkbox" id=remember> <label for="remember">remember me</label>
-			</div>
 		</form>
-		
 		<button class="user__update--btn">회원수정</button>
-		
-
 	</div>
-
 	<th:block th:replace="/fragment/footer.html"></th:block>
 	<script src="/static/js/user_update.js"></script>
 </body>

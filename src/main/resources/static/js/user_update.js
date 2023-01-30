@@ -9,7 +9,10 @@
  let id = document.querySelector(".user__id").value
  
  
- updateBtn.addEventListener('click', () => {
+ updateBtn.addEventListener('click', (event) => {
+	
+	event.preventDefault();
+	
 	let data = {
 		
 		username : username.value,
